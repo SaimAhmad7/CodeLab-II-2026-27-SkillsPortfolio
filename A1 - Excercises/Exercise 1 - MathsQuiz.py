@@ -4,7 +4,7 @@ import random
 # Colours
 BG = "#101827"
 CARD = "#1C293B"
-PURPLE = "#7966F5"
+YELLOW = "#9CB800"
 WHITE = "#FFFFFF"
 GREY = "#AAB6C8"
 GREEN = "#36C98F"
@@ -49,7 +49,7 @@ def makeLabel(parent, text, size, colour, bold=False, background=CARD):
     )
 
 
-def makeButton(parent, text, command, colour=PURPLE):
+def makeButton(parent, text, command, colour=YELLOW):
     return tk.Button(
         parent,
         text=text,
@@ -124,7 +124,7 @@ def showQuiz():
     header.pack(fill="x", padx=35, pady=20)
 
     makeLabel(header, "MATHS QUIZ", 19, WHITE, True, BG).pack(side="left")
-    makeLabel(header, difficulty.upper(), 11, PURPLE, True, BG).pack(side="right")
+    makeLabel(header, difficulty.upper(), 11, YELLOW, True, BG).pack(side="right")
 
     info = tk.Frame(window, bg=BG)
     info.pack(fill="x", padx=40)
@@ -313,7 +313,7 @@ def displayResults():
         grade = "F"
         message = "Try again!"
 
-    makeLabel(card, f"Grade: {grade}", 20, PURPLE, True).pack(pady=5)
+    makeLabel(card, f"Grade: {grade}", 20, YELLOW, True).pack(pady=5)
     makeLabel(card, message, 12, WHITE).pack(pady=5)
 
     makeButton(window, "PLAY AGAIN", displayMenu).pack(pady=8)
