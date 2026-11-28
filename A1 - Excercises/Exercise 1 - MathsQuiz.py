@@ -4,10 +4,10 @@ import random
 # Colours
 BG = "#101827"
 CARD = "#1C293B"
-YELLOW = "#9CB800"
+RED = "#F16C78"
 WHITE = "#FFFFFF"
 GREY = "#AAB6C8"
-GREEN = "#36C98F"
+RED = "#F16C78"
 RED = "#F16C78"
 
 # Quiz variables
@@ -49,7 +49,7 @@ def makeLabel(parent, text, size, colour, bold=False, background=CARD):
     )
 
 
-def makeButton(parent, text, command, colour=YELLOW):
+def makeButton(parent, text, command, colour=RED):
     return tk.Button(
         parent,
         text=text,
@@ -81,7 +81,7 @@ def displayMenu():
     makeLabel(card, "Choose Your Difficulty", 17, WHITE, True).pack(pady=10)
 
     makeButton(
-        card, "EASY", lambda: startQuiz("Easy"), GREEN
+        card, "EASY", lambda: startQuiz("Easy"), RED
     ).pack(fill="x", pady=7)
 
     makeButton(
@@ -124,7 +124,7 @@ def showQuiz():
     header.pack(fill="x", padx=35, pady=20)
 
     makeLabel(header, "MATHS QUIZ", 19, WHITE, True, BG).pack(side="left")
-    makeLabel(header, difficulty.upper(), 11, YELLOW, True, BG).pack(side="right")
+    makeLabel(header, difficulty.upper(), 11, RED, True, BG).pack(side="right")
 
     info = tk.Frame(window, bg=BG)
     info.pack(fill="x", padx=40)
@@ -132,7 +132,7 @@ def showQuiz():
     progressLabel = makeLabel(info, "QUESTION 1 / 10", 10, GREY, True, BG)
     progressLabel.pack(side="left")
 
-    scoreLabel = makeLabel(info, "SCORE: 0", 10, GREEN, True, BG)
+    scoreLabel = makeLabel(info, "SCORE: 0", 10, RED, True, BG)
     scoreLabel.pack(side="right")
 
     # Progress bar
@@ -248,7 +248,7 @@ def checkAnswer():
             score += 5
 
         scoreLabel.config(text=f"SCORE: {score}")
-        feedbackLabel.config(text="Correct answer!", fg=GREEN)
+        feedbackLabel.config(text="Correct answer!", fg=RED)
 
         window.after(800, nextQuestion)
 
@@ -292,7 +292,7 @@ def displayResults():
 
     makeLabel(card, "YOUR FINAL SCORE", 12, GREY, True).pack(pady=10)
 
-    makeLabel(card, f"{score} / 100", 38, GREEN, True).pack(pady=10)
+    makeLabel(card, f"{score} / 100", 38, RED, True).pack(pady=10)
 
     if score >= 90:
         grade = "A+"
@@ -313,7 +313,7 @@ def displayResults():
         grade = "F"
         message = "Try again!"
 
-    makeLabel(card, f"Grade: {grade}", 20, YELLOW, True).pack(pady=5)
+    makeLabel(card, f"Grade: {grade}", 20, RED, True).pack(pady=5)
     makeLabel(card, message, 12, WHITE).pack(pady=5)
 
     makeButton(window, "PLAY AGAIN", displayMenu).pack(pady=8)
